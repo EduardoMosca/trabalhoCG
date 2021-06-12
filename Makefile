@@ -1,0 +1,24 @@
+build:
+	-gcc -Wfatal-errors -Wextra \
+	-std=c11 \
+	-mwindows \
+	./main.c \
+	-O "src/Shader/shaderClass.o" \
+	-O "src/STB/stb.o" \
+	-O "src/VAO/VAO.o" \
+	-O "src/VBO/VBO.o" \
+	-O "src/EBO/EBO.o" \
+	-O "src/Camera/Camera.o" \
+	-O "src/Texture/Texture.o" \
+	-I"C:\Users\eduar\Desktop\Programacao\C\trabalhoCG\libraries\include\cglm\include" \
+	-L"C:\Users\eduar\Desktop\Programacao\C\trabalhoCG\libraries\include\cglm\win\Release" \
+	-I"E:\sdks\SDL2\include" \
+	-L"E:\sdks\SDL2\lib" \
+	-L"E:\sdks\GLEW\lib\Release\Win32" \
+	-lcglm \
+	-lglew32 \
+	-lopengl32 \
+	-lmingw32 \
+	-lSDL2main \
+	-lSDL2 \
+	-o example.exe
