@@ -31,6 +31,8 @@
 #include "pontos/tetraedro.h"
 #include "pontos/pentagono.h"
 
+#include "rotacao/movimentos.h"
+
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 800;
 
@@ -353,6 +355,7 @@ int SDL_main(int argc, char *args[])
     prismahexShader.Activate(prismahexShader);
     camera.Matrix(&camera, &prismahexShader, "camMatrix");
     prismahexVAO.Bind(prismahexVAO);
+    orbita(prismahexShader);
     glDrawElements(GL_TRIANGLES, (sizeof(prismahexInd) / sizeof(unsigned int)), GL_UNSIGNED_INT, (void *)0);
 
     //Ativa prisma
@@ -371,18 +374,21 @@ int SDL_main(int argc, char *args[])
     pentShader.Activate(pentShader);
     camera.Matrix(&camera, &pentShader, "camMatrix");
     pentVAO.Bind(pentVAO);
+    martelo(pentShader);
     glDrawElements(GL_TRIANGLES, (sizeof(pentInd) / sizeof(unsigned int)), GL_UNSIGNED_INT, (void *)0);
 
     //Ativa tetraedro
     tetraedroShader.Activate(tetraedroShader);
     camera.Matrix(&camera, &tetraedroShader, "camMatrix");
     tetraedroVAO.Bind(tetraedroVAO);
+    orbita2(tetraedroShader);
     glDrawElements(GL_TRIANGLES, (sizeof(tetraedroInd) / sizeof(unsigned int)), GL_UNSIGNED_INT, (void *)0);
 
     //Ativa piramide hex base
     piramidehexShader.Activate(piramidehexShader);
     camera.Matrix(&camera, &piramidehexShader, "camMatrix");
     piramidehexVAO.Bind(piramidehexVAO);
+    vai_e_vem(piramidehexShader);
     glDrawElements(GL_TRIANGLES, (sizeof(piramidehexInd) / sizeof(unsigned int)), GL_UNSIGNED_INT, (void *)0);
 
     //Ativa paralelepipedo

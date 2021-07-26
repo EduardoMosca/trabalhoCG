@@ -1,8 +1,9 @@
 build:
 	-gcc -Wfatal-errors -Wextra \
 	-std=c11 \
-	-mwindows \
+	-O3 \
 	./main.c \
+	-mwindows \
 	-O "src/Shader/shaderClass.o" \
 	-O "src/STB/stb.o" \
 	-O "src/VAO/VAO.o" \
@@ -11,6 +12,7 @@ build:
 	-O "src/Camera/Camera.o" \
 	-O "src/Texture/Texture.o" \
 	-I"C:\Users\eduar\Desktop\Programacao\C\trabalhoCG\libraries\include\cglm\include" \
+	-I. \
 	-L"C:\Users\eduar\Desktop\Programacao\C\trabalhoCG\libraries\include\cglm\win\Release" \
 	-I"E:\sdks\SDL2\include" \
 	-L"E:\sdks\SDL2\lib" \
