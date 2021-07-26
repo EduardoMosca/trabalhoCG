@@ -395,6 +395,7 @@ int SDL_main(int argc, char *args[])
     paralelShader.Activate(paralelShader);
     camera.Matrix(&camera, &paralelShader, "camMatrix");
     paralelVAO.Bind(paralelVAO);
+    rotacao(paralelShader);
     glDrawElements(GL_TRIANGLES, (sizeof(paralelIndices) / sizeof(unsigned int)), GL_UNSIGNED_INT, (void *)0);
 
     //Ativa light
